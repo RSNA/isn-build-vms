@@ -1,0 +1,12 @@
+[Unit]
+Description=TorqueBox
+
+
+[Service]
+User=edge
+Environment="RSNA_ROOT=/usr/local/edge-server"
+WorkingDirectory=/usr/local/edge-server/torquebox-3.2.0
+ExecStart=/usr/local/edge-server/torquebox-3.2.0/jboss/bin/standalone.sh -b 0.0.0.0 -Dhttp.port=3000
+
+[Install]
+WantedBy=multi-user.target
