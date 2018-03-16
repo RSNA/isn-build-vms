@@ -17,13 +17,12 @@ stop_all_but_postgres.sh      Stops the existing edge-server services
 04_disable_ctp.sh             Disables CTP software. Image submission protocol was changed.
 05_cleanup.sh                 Cleans up some of the files that were touched during upgrade
 
-When this is done, there is one more step this is helpful. You can reclaim disk
-space that was used for files and then released by writing 0's over that space.
-The method we use is:
-Make sure all extra VM disks are unmounted and no longer tied to the VM
-./stop_services.sh
-dd if=/dev/zero of=~rsna/zero  (this will fill up the disk and will eventually exit)
-rm ~rsna/zero
-
-Use google to 
-stop_services.sh
+  When this is done, there is one more step this is helpful. You can reclaim disk
+  space that was used for files and then released by writing 0's over that space.
+  The method we use is:
+  Make sure all extra VM disks are unmounted and no longer tied to the VM
+  ./stop_services.sh
+  dd if=/dev/zero of=~rsna/zero  (this will fill up the disk and will eventually exit)
+  rm ~rsna/zero
+  
+  Use google to learn more about this process
