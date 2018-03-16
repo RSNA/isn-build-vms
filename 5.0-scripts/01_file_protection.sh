@@ -20,7 +20,7 @@ local_chmod()
 }
 
 
-echo This 01 script performs initial tasks
+echo This 01 script changes file permissions and makes a copy of Mirth_Backup.xml
 
 $SUDO date
 
@@ -34,24 +34,6 @@ local_chmod 600 $RSNA_ROOT/Mirth\*Backup.xml
 local_chmod 600 $MIRTH/conf/mirth.properties
 local_chmod 700 $RSNA_ROOT/torquebox-3.2.0/jboss/standalone/configuration/standalone_xml_history
 local_chmod 700 $RSNA_ROOT/scripts
-
-
-
-$SUDO sed -i -e 's-mirthconnect/mirth.properties-mirthconnect/conf/mirth.properties-g' $RSNA_ROOT/monitor-scripts/edgeserver_monitor.sh
-if [[ $? -eq 0 ]]; then
- echo "Change mirth.properties path in: /monitor-scripts/edgeserver_monitor.sh"
-else
- echo "Fail: Change mirth.properties path in: /monitor-scripts/edgeserver_monitor.sh"
- exit 1
-fi
-
-$SUDO sed -i -e 's-  trust-  md5-g' /data/pg_hba.conf
-if [[ $? -eq 0 ]]; then
- echo "Change database access trust/md5 in /data/ph_hba.conf"
-else
- echo "Fail: Change database access trust/md5 in /data/ph_hba.conf"
- exit 1
-fi
 
 echo ""
 $SUDO ls -ld \
