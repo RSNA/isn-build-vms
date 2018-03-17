@@ -10,7 +10,7 @@ local_chmod()
  PATH=$2
  shift; shift;
 
- $SUDO chmod $MODE $PATH
+ /bin/chmod $MODE $PATH
  if [[ $? -eq 0 ]]; then
   echo "chmod $MODE $PATH"
  else
